@@ -195,3 +195,13 @@ namespace rm_idle
         }
     }
 }
+
+/*
+ *
+ * Originally created by Remona Minett, Nov. 10 2020
+ * Windows Forms Application (WFA)
+ * .NET Framework 4.7.2
+ * Internal Revision 41
+ * Release version 1.0
+ *
+ */
