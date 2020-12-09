@@ -56,6 +56,8 @@
             this.gath1maxlabel = new System.Windows.Forms.Label();
             this.gath2maxlabel = new System.Windows.Forms.Label();
             this.gath0afilllabel = new System.Windows.Forms.Label();
+            this.game_saveButton = new System.Windows.Forms.Button();
+            this.saveConfirmText = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // gatherer0label
@@ -348,6 +350,27 @@
             this.gath0afilllabel.Text = "gath0afill label";
             this.gath0afilllabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
+            // game_saveButton
+            // 
+            this.game_saveButton.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.game_saveButton.Location = new System.Drawing.Point(12, 237);
+            this.game_saveButton.Name = "game_saveButton";
+            this.game_saveButton.Size = new System.Drawing.Size(88, 23);
+            this.game_saveButton.TabIndex = 37;
+            this.game_saveButton.Text = "Save Game";
+            this.game_saveButton.UseVisualStyleBackColor = true;
+            this.game_saveButton.Click += new System.EventHandler(this.game_saveButton_Click);
+            // 
+            // saveConfirmText
+            // 
+            this.saveConfirmText.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.saveConfirmText.Location = new System.Drawing.Point(106, 242);
+            this.saveConfirmText.Name = "saveConfirmText";
+            this.saveConfirmText.Size = new System.Drawing.Size(52, 18);
+            this.saveConfirmText.TabIndex = 38;
+            this.saveConfirmText.Text = "Saved!";
+            this.saveConfirmText.Visible = false;
+            // 
             // mainWindow
             // 
             this.AccessibleDescription = "idle game main window";
@@ -356,7 +379,9 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Gray;
-            this.ClientSize = new System.Drawing.Size(597, 241);
+            this.ClientSize = new System.Drawing.Size(597, 266);
+            this.Controls.Add(this.saveConfirmText);
+            this.Controls.Add(this.game_saveButton);
             this.Controls.Add(this.gath0afilllabel);
             this.Controls.Add(this.gath2maxlabel);
             this.Controls.Add(this.gath1maxlabel);
@@ -390,7 +415,7 @@
             this.MaximizeBox = false;
             this.Name = "mainWindow";
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
-            this.Text = "rm-Clicker 1.0";
+            this.Text = "rm-Clicker";
             this.Load += new System.EventHandler(this.mainWindow_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -425,6 +450,8 @@
         private System.Windows.Forms.Label gath1maxlabel;
         private System.Windows.Forms.Label gath2maxlabel;
         private System.Windows.Forms.Label gath0afilllabel;
+        private System.Windows.Forms.Button game_saveButton;
+        private System.Windows.Forms.Label saveConfirmText;
     }
 }
 

@@ -15,9 +15,10 @@ namespace rm_idle
         int b1prce = 10; int b2prce = 25; int b3prce = 10; int b4prce = 100; int b5prce = 50; int b6prce = 20;
         int gath0afill = 0; int gath1decay = 1; int gath2decay = 1;
 
+        int tickcount = 0;
+
         public void mainWindow_Load(object sender, EventArgs e)
         {
-            
             var g0 = new Thread(Gatherer0logic);
             var g1 = new Thread(Gatherer1logic);
             var g2 = new Thread(Gatherer2logic);
@@ -34,16 +35,41 @@ namespace rm_idle
             buy4label.Text = "Capacity Autofill +1";
             buy5label.Text = "Charge Bar | 2 Click Power +1";
             buy6label.Text = "Charge Bar | 2 Max Capacity +5";
+            if (Program.convsavedata != null)
+            {
+                buy1ct = Program.convsavedata[0];
+                buy2ct = Program.convsavedata[1];
+                buy3ct = Program.convsavedata[2];
+                buy4ct = Program.convsavedata[3];
+                buy5ct = Program.convsavedata[4];
+                buy6ct = Program.convsavedata[5];
+                b1prce = Program.convsavedata[6];
+                b2prce = Program.convsavedata[7];
+                b3prce = Program.convsavedata[8];
+                b4prce = Program.convsavedata[9];
+                b5prce = Program.convsavedata[10];
+                b6prce = Program.convsavedata[11];
+                gath0afill = Program.convsavedata[12];
+                gath1decay = Program.convsavedata[13];
+                gath2decay = Program.convsavedata[14];
+                gatherer0.Value = Program.convsavedata[15];
+                gatherer1.Value = Program.convsavedata[16];
+                gatherer2.Value = Program.convsavedata[17];
+            }
         }
 
         void GameTick()
         {
             for ( ; ;)
             {
-                Invoke((MethodInvoker)delegate
+                Invoke((MethodInvoker) delegate
                 {
                     tickprogbar.PerformStep();
-                    if (tickprogbar.Value == 100) tickprogbar.Value = 0;
+                    if (tickprogbar.Value == 100)
+                    {
+                        tickprogbar.Value = 0;
+                        tickcount++;
+                    }
                 });
                 Thread.Sleep(10);
             }
@@ -120,12 +146,22 @@ namespace rm_idle
                 });
                 Thread.Sleep(250);
             }
+        }
 
+        void saveConfirm()
+        {
+            Thread.Sleep(3000);
+            Invoke((MethodInvoker) delegate
+            {
+                game_saveButton.Enabled = true;
+                saveConfirmText.Visible = false;
+
+            });
         }
 
         private void gatherer1_Click(object sender, EventArgs e)
         {
-            gatherer1.Step = gath1decay; // deprecated int, used in lieu of renaming...
+            gatherer1.Step = gath1decay; // name deprecation
             gatherer1.PerformStep();
         }
 
@@ -193,15 +229,39 @@ namespace rm_idle
             /* gatherer0.Maximum += 100;
             gatherer0.Value += 100; */
         }
+
+        private void game_saveButton_Click(object sender, EventArgs e)
+        {
+            Program.dirtysavedata = new int[18]; // create pre-save storage
+            Program.dirtysavedata[0] = buy1ct;
+            Program.dirtysavedata[1] = buy2ct;
+            Program.dirtysavedata[2] = buy3ct;
+            Program.dirtysavedata[3] = buy4ct;
+            Program.dirtysavedata[4] = buy5ct;
+            Program.dirtysavedata[5] = buy6ct;
+            Program.dirtysavedata[6] = b1prce;
+            Program.dirtysavedata[7] = b2prce;
+            Program.dirtysavedata[8] = b3prce;
+            Program.dirtysavedata[9] = b4prce;
+            Program.dirtysavedata[10] = b5prce;
+            Program.dirtysavedata[11] = b6prce;
+            Program.dirtysavedata[12] = gath0afill;
+            Program.dirtysavedata[13] = gath1decay;
+            Program.dirtysavedata[14] = gath2decay;
+            Program.dirtysavedata[15] = gatherer0.Value;
+            Program.dirtysavedata[16] = gatherer1.Value;
+            Program.dirtysavedata[17] = gatherer2.Value;
+            bool success = saveLoad.saveData();
+            if (success == false)
+            {
+                MessageBox.Show("Something went wrong. Check folder access and try again. (E03)", "Save File Error");
+            }
+            else if (success)
+            {
+                game_saveButton.Enabled = false;
+                saveConfirmText.Visible = true;
+                var confirmed = new Thread(saveConfirm); confirmed.Start();
+            }
+        }
     }
 }
-
-/*
- *
- * Originally created by Remona Minett, Nov. 10 2020
- * Windows Forms Application (WFA)
- * .NET Framework 4.7.2
- * Internal Revision 41
- * Release version 1.0
- *
- */
