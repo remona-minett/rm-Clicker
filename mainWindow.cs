@@ -50,11 +50,18 @@ namespace rm_idle
                 b5prce = Program.convsavedata[10];
                 b6prce = Program.convsavedata[11];
                 gath0afill = Program.convsavedata[12];
+                gath0afilllabel.Text = "Autofill: " + gath0afill;
                 gath1decay = Program.convsavedata[13];
                 gath2decay = Program.convsavedata[14];
-                gatherer0.Value = Program.convsavedata[15];
-                gatherer1.Value = Program.convsavedata[16];
-                gatherer2.Value = Program.convsavedata[17];
+                gatherer0.Maximum = Program.convsavedata[15];
+                gath0maxlabel.Text = "Maximum: " + gatherer0.Maximum;
+                gatherer1.Maximum = Program.convsavedata[16];
+                gath1maxlabel.Text = "Maximum: " + gatherer1.Maximum;
+                gatherer2.Maximum = Program.convsavedata[17];
+                gath2maxlabel.Text = "Maximum: " + gatherer2.Maximum;
+                gatherer0.Value = Program.convsavedata[18];
+                gatherer1.Value = Program.convsavedata[19];
+                gatherer2.Value = Program.convsavedata[20];
             }
         }
 
@@ -220,19 +227,19 @@ namespace rm_idle
             buy6button.Enabled = false;
             gatherer2.Maximum += 5;
             gatherer0.Value -= b6prce * buy6ct;
-            buy2ct++;
+            buy6ct++;
             gath2maxlabel.Text = "Maximum: " + gatherer2.Maximum;
         }
 
         private void gatherer0label_Click(object sender, EventArgs e) // debug cheat code
         {
-            /* gatherer0.Maximum += 100;
-            gatherer0.Value += 100; */
+            // gatherer0.Maximum += 100;
+            // gatherer0.Value += 100;
         }
 
         private void game_saveButton_Click(object sender, EventArgs e)
         {
-            Program.dirtysavedata = new int[18]; // create pre-save storage
+            Program.dirtysavedata = new int[21]; // create pre-save storage
             Program.dirtysavedata[0] = buy1ct;
             Program.dirtysavedata[1] = buy2ct;
             Program.dirtysavedata[2] = buy3ct;
@@ -248,9 +255,12 @@ namespace rm_idle
             Program.dirtysavedata[12] = gath0afill;
             Program.dirtysavedata[13] = gath1decay;
             Program.dirtysavedata[14] = gath2decay;
-            Program.dirtysavedata[15] = gatherer0.Value;
-            Program.dirtysavedata[16] = gatherer1.Value;
-            Program.dirtysavedata[17] = gatherer2.Value;
+            Program.dirtysavedata[15] = gatherer0.Maximum;
+            Program.dirtysavedata[16] = gatherer1.Maximum;
+            Program.dirtysavedata[17] = gatherer2.Maximum;
+            Program.dirtysavedata[18] = gatherer0.Value;
+            Program.dirtysavedata[19] = gatherer1.Value;
+            Program.dirtysavedata[20] = gatherer2.Value;
             bool success = saveLoad.saveData();
             if (success == false)
             {

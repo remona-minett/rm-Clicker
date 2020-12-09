@@ -208,7 +208,7 @@
     <value>True</value>
   </data>
   <data name="verLabel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>218, 78</value>
+    <value>218, 77</value>
   </data>
   <data name="verLabel.Size" type="System.Drawing.Size, System.Drawing">
     <value>31, 13</value>
@@ -217,7 +217,7 @@
     <value>4</value>
   </data>
   <data name="verLabel.Text" xml:space="preserve">
-    <value>v 1.1</value>
+    <value>v 2.0</value>
   </data>
   <data name="&gt;&gt;verLabel.Name" xml:space="preserve">
     <value>verLabel</value>
