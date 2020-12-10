@@ -36,7 +36,8 @@ namespace rm_idle
 
         private void optionsButton_Click(object sender, EventArgs e)
         {
-            // nothing yet
+            var options = new optionsWindow();
+            options.Show();
         }
     }
 }
@@ -46,7 +47,7 @@ namespace rm_idle
  * Originally created by Remona Minett, Nov. 10 2020
  * Windows Forms Application (WFA)
  * .NET Framework 4.7.2
- * Internal version 63
+ * Internal version 65
  * External version 2.1.2
  *
  */

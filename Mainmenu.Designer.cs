@@ -32,7 +32,6 @@
             this.loadButton = new System.Windows.Forms.Button();
             this.optionsButton = new System.Windows.Forms.Button();
             this.newButton = new System.Windows.Forms.Button();
-            this.verLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // loadButton
@@ -57,16 +56,10 @@
             this.newButton.UseVisualStyleBackColor = true;
             this.newButton.Click += new System.EventHandler(this.newButton_Click);
             // 
-            // verLabel
-            // 
-            resources.ApplyResources(this.verLabel, "verLabel");
-            this.verLabel.Name = "verLabel";
-            // 
             // mainMenu
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.verLabel);
             this.Controls.Add(this.newButton);
             this.Controls.Add(this.optionsButton);
             this.Controls.Add(this.loadButton);
@@ -76,7 +69,6 @@
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.Load += new System.EventHandler(this.mainMenu_Load);
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -85,6 +77,5 @@
         private System.Windows.Forms.Button loadButton;
         private System.Windows.Forms.Button optionsButton;
         private System.Windows.Forms.Button newButton;
-        private System.Windows.Forms.Label verLabel;
     }
 }
