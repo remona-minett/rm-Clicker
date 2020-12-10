@@ -55,6 +55,7 @@
             this.openRelease.TabIndex = 1;
             this.openRelease.Text = "Go to GitHub";
             this.openRelease.UseVisualStyleBackColor = true;
+            this.openRelease.Click += new System.EventHandler(this.openRelease_Click);
             // 
             // currentVer
             // 
