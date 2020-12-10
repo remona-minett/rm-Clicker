@@ -108,8 +108,11 @@ namespace rm_idle
                 {
                     if (gatherer1.Value != 0)
                     {
-                        gatherer1.Step = -1;
-                        gatherer1.PerformStep();
+                        if (gatherer0.Value != gatherer0.Maximum)
+                        {
+                            gatherer1.Step = -1;
+                            gatherer1.PerformStep();
+                        }
                     }
                 });
                 Thread.Sleep(1000);
@@ -124,8 +127,11 @@ namespace rm_idle
                 {
                     if (gatherer2.Value != 0)
                     {
-                        gatherer2.Step = -1;
-                        gatherer2.PerformStep();
+                        if (gatherer0.Value != gatherer0.Maximum)
+                        {
+                            gatherer2.Step = -1;
+                            gatherer2.PerformStep();
+                        }
                     }
                 });
                 Thread.Sleep(1000);

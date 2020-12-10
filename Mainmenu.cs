@@ -20,8 +20,8 @@ namespace rm_idle
         private void newButton_Click(object sender, EventArgs e)
         {
             Program.convsavedata = null;
-            var game = new mainWindow();
-            game.Show();
+            var tutorial = new newTutorial();
+            tutorial.Show();
             this.Visible = false;
         }
 
@@ -46,7 +46,7 @@ namespace rm_idle
  * Originally created by Remona Minett, Nov. 10 2020
  * Windows Forms Application (WFA)
  * .NET Framework 4.7.2
- * Internal version 53
- * External version 2.0
+ * Internal version 61
+ * External version 2.1.1
  *
  */

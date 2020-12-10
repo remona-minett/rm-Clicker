@@ -18,6 +18,7 @@ namespace rm_idle
                 Title = "Save Game",
                 Filter = "rm-Clicker Save (*.rmc)|*.rmc|All files (*.*)|*.*",
                 FilterIndex = 1,
+                FileName = "save.rmc",
                 RestoreDirectory = true
             };
 
@@ -43,6 +44,7 @@ namespace rm_idle
                 Title = "Load Save",
                 Filter = "rm-Clicker Save (*.rmc)|*.rmc|All files (*.*)|*.*",
                 FilterIndex = 1,
+                FileName = "save.rmc",
                 RestoreDirectory = true,
                 CheckFileExists = true,
                 CheckPathExists = true
