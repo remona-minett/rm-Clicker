@@ -70,6 +70,7 @@
             this.Controls.Add(this.newButton);
             this.Controls.Add(this.optionsButton);
             this.Controls.Add(this.loadButton);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.Name = "mainMenu";
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;

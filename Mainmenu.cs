@@ -46,7 +46,7 @@ namespace rm_idle
  * Originally created by Remona Minett, Nov. 10 2020
  * Windows Forms Application (WFA)
  * .NET Framework 4.7.2
- * Internal version 61
- * External version 2.1.1
+ * Internal version 63
+ * External version 2.1.2
  *
  */
