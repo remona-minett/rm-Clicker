@@ -33,6 +33,8 @@ namespace rm_idle
         {
             using (var client = new WebClient())
             {
+                ServicePointManager.Expect100Continue = true;
+                ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
                 try
                 {
                     onlineVer.Visible = true;
