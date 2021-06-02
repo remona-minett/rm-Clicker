@@ -67,7 +67,7 @@
             this.currentVer.Name = "currentVer";
             this.currentVer.Size = new System.Drawing.Size(130, 23);
             this.currentVer.TabIndex = 2;
-            this.currentVer.Text = "2.2.0-b1";
+            this.currentVer.Text = "2.2.0-b2";
             this.currentVer.Click += new System.EventHandler(this.currentVer_Click);
             // 
             // onlineVer
