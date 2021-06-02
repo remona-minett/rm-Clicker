@@ -492,6 +492,7 @@
             this.Name = "mainWindow";
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.Text = "rm-Clicker";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.mainWindow_FormClosing);
             this.Load += new System.EventHandler(this.mainWindow_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

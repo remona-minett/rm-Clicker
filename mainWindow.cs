@@ -286,5 +286,19 @@ namespace rm_idle
         {
             
         }
+
+        private void mainWindow_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (saveConfirmText.Visible != true) // if you've saved in the past 5 seconds, this is skipped
+            {
+                DialogResult savequit = MessageBox.Show("Do you want to save before quitting?", "Warning", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Exclamation);
+                e.Cancel = (savequit == DialogResult.Cancel);
+                if (savequit == DialogResult.Yes)
+                {
+                    saveLoad.saveData();
+                }
+                if (savequit == DialogResult.No) { /* just allow close */ }
+            }
+        }
     }
 }

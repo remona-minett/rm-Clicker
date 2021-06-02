@@ -45,6 +45,16 @@ namespace rm_idle
                     onlineVer.Visible = true;
                     onlineVer.Text = "Unable to connect...";
                 }
+                try
+                {
+                    betaVer.Visible = true;
+                    betaVer.Text = client.DownloadString("https://raw.githubusercontent.com/remona-minett/rm-Clicker/beta/ver.txt");
+                }
+                catch (Exception)
+                {
+                    betaVer.Visible = true;
+                    betaVer.Text = "Unable to connect...";
+                }
             }
         }
 
