@@ -60,10 +60,10 @@
             this.saveConfirmText = new System.Windows.Forms.Label();
             this.cosmetic_button = new System.Windows.Forms.Button();
             this.showhideshop = new System.Windows.Forms.Button();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.buy7label = new System.Windows.Forms.Label();
+            this.buy8label = new System.Windows.Forms.Label();
+            this.buy8button = new System.Windows.Forms.Button();
+            this.buy7button = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // gatherer0label
@@ -401,45 +401,45 @@
             this.showhideshop.Visible = false;
             this.showhideshop.Click += new System.EventHandler(this.showhideshop_Click);
             // 
-            // label3
+            // buy7label
             // 
-            this.label3.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.label3.Location = new System.Drawing.Point(12, 242);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(181, 13);
-            this.label3.TabIndex = 44;
-            this.label3.Text = "label3";
+            this.buy7label.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.buy7label.Location = new System.Drawing.Point(12, 242);
+            this.buy7label.Name = "buy7label";
+            this.buy7label.Size = new System.Drawing.Size(181, 13);
+            this.buy7label.TabIndex = 44;
+            this.buy7label.Text = "buy7label";
             // 
-            // label4
+            // buy8label
             // 
-            this.label4.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.label4.Location = new System.Drawing.Point(310, 242);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(181, 13);
-            this.label4.TabIndex = 43;
-            this.label4.Text = "label4";
+            this.buy8label.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.buy8label.Location = new System.Drawing.Point(310, 242);
+            this.buy8label.Name = "buy8label";
+            this.buy8label.Size = new System.Drawing.Size(181, 13);
+            this.buy8label.TabIndex = 43;
+            this.buy8label.Text = "buy8label";
             // 
-            // button1
+            // buy8button
             // 
-            this.button1.Enabled = false;
-            this.button1.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.button1.Location = new System.Drawing.Point(497, 237);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(88, 23);
-            this.button1.TabIndex = 42;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
+            this.buy8button.Enabled = false;
+            this.buy8button.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.buy8button.Location = new System.Drawing.Point(497, 237);
+            this.buy8button.Name = "buy8button";
+            this.buy8button.Size = new System.Drawing.Size(88, 23);
+            this.buy8button.TabIndex = 42;
+            this.buy8button.Text = "buy8button";
+            this.buy8button.UseVisualStyleBackColor = true;
             // 
-            // button2
+            // buy7button
             // 
-            this.button2.Enabled = false;
-            this.button2.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.button2.Location = new System.Drawing.Point(199, 237);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(88, 23);
-            this.button2.TabIndex = 41;
-            this.button2.Text = "button2";
-            this.button2.UseVisualStyleBackColor = true;
+            this.buy7button.Enabled = false;
+            this.buy7button.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.buy7button.Location = new System.Drawing.Point(199, 237);
+            this.buy7button.Name = "buy7button";
+            this.buy7button.Size = new System.Drawing.Size(88, 23);
+            this.buy7button.TabIndex = 41;
+            this.buy7button.Text = "buy7button";
+            this.buy7button.UseVisualStyleBackColor = true;
             // 
             // mainWindow
             // 
@@ -450,10 +450,10 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Gray;
             this.ClientSize = new System.Drawing.Size(597, 299);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.buy7label);
+            this.Controls.Add(this.buy8label);
+            this.Controls.Add(this.buy8button);
+            this.Controls.Add(this.buy7button);
             this.Controls.Add(this.showhideshop);
             this.Controls.Add(this.cosmetic_button);
             this.Controls.Add(this.saveConfirmText);
@@ -531,10 +531,10 @@
         private System.Windows.Forms.Label saveConfirmText;
         private System.Windows.Forms.Button cosmetic_button;
         private System.Windows.Forms.Button showhideshop;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Label buy7label;
+        private System.Windows.Forms.Label buy8label;
+        private System.Windows.Forms.Button buy8button;
+        private System.Windows.Forms.Button buy7button;
     }
 }
 

@@ -293,11 +293,14 @@ namespace rm_idle
             {
                 DialogResult savequit = MessageBox.Show("Do you want to save before quitting?", "Warning", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Exclamation);
                 e.Cancel = (savequit == DialogResult.Cancel);
-                if (savequit == DialogResult.Yes)
+                switch (savequit)
                 {
-                    saveLoad.saveData();
+                    case DialogResult.Yes:
+                        saveLoad.saveData();
+                        break;
+                    case DialogResult.No: /* just allow close */
+                        break;
                 }
-                if (savequit == DialogResult.No) { /* just allow close */ }
             }
         }
     }
