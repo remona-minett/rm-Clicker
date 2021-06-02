@@ -296,7 +296,7 @@
             // 
             this.tickprogbar.Cursor = System.Windows.Forms.Cursors.Default;
             this.tickprogbar.ForeColor = System.Drawing.Color.Blue;
-            this.tickprogbar.Location = new System.Drawing.Point(167, -1);
+            this.tickprogbar.Location = new System.Drawing.Point(309, 266);
             this.tickprogbar.MarqueeAnimationSpeed = 0;
             this.tickprogbar.Name = "tickprogbar";
             this.tickprogbar.Size = new System.Drawing.Size(88, 23);
@@ -308,7 +308,7 @@
             // label5
             // 
             this.label5.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.label5.Location = new System.Drawing.Point(96, -1);
+            this.label5.Location = new System.Drawing.Point(238, 267);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(65, 23);
             this.label5.TabIndex = 32;
@@ -429,6 +429,7 @@
             this.buy8button.TabIndex = 42;
             this.buy8button.Text = "buy8button";
             this.buy8button.UseVisualStyleBackColor = true;
+            this.buy8button.Click += new System.EventHandler(this.buy8button_Click);
             // 
             // buy7button
             // 
@@ -440,6 +441,7 @@
             this.buy7button.TabIndex = 41;
             this.buy7button.Text = "buy7button";
             this.buy7button.UseVisualStyleBackColor = true;
+            this.buy7button.Click += new System.EventHandler(this.buy7button_Click);
             // 
             // mainWindow
             // 

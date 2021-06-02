@@ -24,7 +24,7 @@ namespace rm_idle
 
             if (sfdlg.ShowDialog() == DialogResult.OK)
             {
-                Program.rawsavedata = new string[21];
+                Program.rawsavedata = new string[25];
                 Program.filepath = sfdlg.FileName; // Stores full path
                 var success = convertToRaw();
                 if (success == false) return false;
@@ -52,8 +52,8 @@ namespace rm_idle
             if (fdlg.ShowDialog() == DialogResult.OK)
             {
                 Program.filepath = fdlg.FileName; // Stores full path
-                Program.rawsavedata = new string[21]; // create savedata array
-                Program.convsavedata = new int[21]; // create convdata array
+                Program.rawsavedata = new string[25]; // create savedata array
+                Program.convsavedata = new int[25]; // create convdata array
                 Program.rawsavedata = File.ReadAllLines(Program.filepath);
                 var success = convertToData(Program.rawsavedata);
                 if (success == false) return false;

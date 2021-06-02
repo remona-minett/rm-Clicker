@@ -11,9 +11,9 @@ namespace rm_idle
             InitializeComponent();
         }
 
-        int buy1ct = 1; int buy2ct = 1; int buy3ct = 1; int buy4ct = 1; int buy5ct = 1; int buy6ct = 1;
-        int b1prce = 10; int b2prce = 25; int b3prce = 10; int b4prce = 100; int b5prce = 50; int b6prce = 20;
-        int gath0afill = 0; int gath1decay = 1; int gath2decay = 1;
+        int buy1ct = 1; int buy2ct = 1; int buy3ct = 1; int buy4ct = 1; int buy5ct = 1; int buy6ct = 1; int buy7ct = 1; int buy8ct = 1;
+        int b1prce = 10; int b2prce = 25; int b3prce = 10; int b4prce = 100; int b5prce = 50; int b6prce = 20; int b7prce = 100; int b8prce = 200;
+        int gath0afill = 0; int gath1clickpwr = 1; int gath2clickpwr = 1;
 
         int tickcount = 0;
 
@@ -37,6 +37,8 @@ namespace rm_idle
             buy4label.Text = "Capacity Autofill +1";
             buy5label.Text = "Charge Bar | 2 Click Power +1";
             buy6label.Text = "Charge Bar | 2 Max Capacity +5";
+            buy7label.Text = "Charge Bar | 1 Consume Power +1";
+            buy8label.Text = "Charge bar | 2 Consume Power +1";
             if (Program.convsavedata != null)
             {
                 buy1ct = Program.convsavedata[0];
@@ -53,8 +55,8 @@ namespace rm_idle
                 b6prce = Program.convsavedata[11];
                 gath0afill = Program.convsavedata[12];
                 gath0afilllabel.Text = "Autofill: " + gath0afill;
-                gath1decay = Program.convsavedata[13];
-                gath2decay = Program.convsavedata[14];
+                gath1clickpwr = Program.convsavedata[13];
+                gath2clickpwr = Program.convsavedata[14];
                 gatherer0.Maximum = Program.convsavedata[15];
                 gath0maxlabel.Text = "Maximum: " + gatherer0.Maximum;
                 gatherer1.Maximum = Program.convsavedata[16];
@@ -64,6 +66,13 @@ namespace rm_idle
                 gatherer0.Value = Program.convsavedata[18];
                 gatherer1.Value = Program.convsavedata[19];
                 gatherer2.Value = Program.convsavedata[20];
+                if (Program.convsavedata[21] != 0 || Program.convsavedata[22] != 0 || Program.convsavedata[23] != 0 || Program.convsavedata[24] != 0) // prevents older saves breaking the game
+                {
+                    buy7ct = Program.convsavedata[21];
+                    buy8ct = Program.convsavedata[22];
+                    b7prce = Program.convsavedata[23];
+                    b8prce = Program.convsavedata[24];
+                }
             }
         }
 
@@ -152,12 +161,16 @@ namespace rm_idle
                     buy4button.Text = "" + b4prce * buy4ct;
                     buy5button.Text = "" + b5prce * buy5ct;
                     buy6button.Text = "" + b6prce * buy6ct;
+                    buy7button.Text = "" + b7prce * buy7ct;
+                    buy8button.Text = "" + b8prce * buy8ct;
                     buy1button.Enabled = b1prce * buy1ct <= gatherer0.Value;
                     buy2button.Enabled = b2prce * buy2ct <= gatherer0.Value;
                     buy3button.Enabled = b3prce * buy3ct <= gatherer0.Value;
                     buy4button.Enabled = b4prce * buy4ct <= gatherer0.Value;
                     buy5button.Enabled = b5prce * buy5ct <= gatherer0.Value;
                     buy6button.Enabled = b6prce * buy6ct <= gatherer0.Value;
+                    buy7button.Enabled = b7prce * buy7ct <= gatherer0.Value;
+                    buy8button.Enabled = b8prce * buy8ct <= gatherer0.Value;
                 });
                 Thread.Sleep(250);
             }
@@ -176,13 +189,13 @@ namespace rm_idle
 
         private void gatherer1_Click(object sender, EventArgs e)
         {
-            gatherer1.Step = gath1decay; // name deprecation
+            gatherer1.Step = gath1clickpwr; // name deprecation
             gatherer1.PerformStep();
         }
 
         private void gatherer2_Click(object sender, EventArgs e)
         {
-            gatherer2.Step = gath2decay;
+            gatherer2.Step = gath2clickpwr;
             gatherer2.PerformStep();
         }
 
@@ -198,7 +211,7 @@ namespace rm_idle
         private void buy2button_Click(object sender, EventArgs e)
         {
             buy2button.Enabled = false;
-            gath1decay++;
+            gath1clickpwr++;
             gatherer0.Value -= b2prce * buy2ct;
             buy2ct++;
         }
@@ -225,7 +238,7 @@ namespace rm_idle
         private void buy5button_Click(object sender, EventArgs e)
         {
             buy5button.Enabled = false;
-            gath2decay++;
+            gath2clickpwr++;
             gatherer0.Value -= b5prce * buy5ct;
             buy5ct++;
         }
@@ -241,13 +254,13 @@ namespace rm_idle
 
         private void gatherer0label_Click(object sender, EventArgs e) // debug cheat code
         {
-            // gatherer0.Maximum += 100;
-            // gatherer0.Value += 100;
+            gatherer0.Maximum += 100;
+            gatherer0.Value += 100;
         }
 
         private void game_saveButton_Click(object sender, EventArgs e)
         {
-            Program.dirtysavedata = new int[21]; // create pre-save storage
+            Program.dirtysavedata = new int[25]; // create pre-save storage
             Program.dirtysavedata[0] = buy1ct;
             Program.dirtysavedata[1] = buy2ct;
             Program.dirtysavedata[2] = buy3ct;
@@ -261,14 +274,18 @@ namespace rm_idle
             Program.dirtysavedata[10] = b5prce;
             Program.dirtysavedata[11] = b6prce;
             Program.dirtysavedata[12] = gath0afill;
-            Program.dirtysavedata[13] = gath1decay;
-            Program.dirtysavedata[14] = gath2decay;
+            Program.dirtysavedata[13] = gath1clickpwr;
+            Program.dirtysavedata[14] = gath2clickpwr;
             Program.dirtysavedata[15] = gatherer0.Maximum;
             Program.dirtysavedata[16] = gatherer1.Maximum;
             Program.dirtysavedata[17] = gatherer2.Maximum;
             Program.dirtysavedata[18] = gatherer0.Value;
             Program.dirtysavedata[19] = gatherer1.Value;
             Program.dirtysavedata[20] = gatherer2.Value;
+            Program.dirtysavedata[21] = buy7ct;
+            Program.dirtysavedata[22] = buy8ct;
+            Program.dirtysavedata[23] = b7prce;
+            Program.dirtysavedata[24] = b8prce;
             bool success = saveLoad.saveData();
             if (success == false)
             {
@@ -302,6 +319,20 @@ namespace rm_idle
                         break;
                 }
             }
+        }
+
+        private void buy7button_Click(object sender, EventArgs e)
+        {
+            buy7button.Enabled = false;
+            gatherer0.Value -= b7prce * buy7ct;
+            buy7ct++;
+        }
+
+        private void buy8button_Click(object sender, EventArgs e)
+        {
+            buy8button.Enabled = false;
+            gatherer0.Value -= b8prce * buy8ct;
+            buy8ct++;
         }
     }
 }
