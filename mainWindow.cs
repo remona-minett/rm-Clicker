@@ -66,7 +66,7 @@ namespace rm_idle
                 gatherer0.Value = Program.convsavedata[18];
                 gatherer1.Value = Program.convsavedata[19];
                 gatherer2.Value = Program.convsavedata[20];
-                if (Program.convsavedata[21] != 0 || Program.convsavedata[22] != 0 || Program.convsavedata[23] != 0 || Program.convsavedata[24] != 0) // prevents older saves breaking the game
+                if (Program.convsavedata[21] != 0 || Program.convsavedata[22] != 0 || Program.convsavedata[23] != 0 || Program.convsavedata[24] != 0) // pre 2.2.0 saves do not have these and are skipped when reading the file as it returns 0 and breaks the game
                 {
                     buy7ct = Program.convsavedata[21];
                     buy8ct = Program.convsavedata[22];
