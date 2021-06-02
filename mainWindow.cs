@@ -66,7 +66,7 @@ namespace rm_idle
                 gatherer0.Value = Program.convsavedata[18];
                 gatherer1.Value = Program.convsavedata[19];
                 gatherer2.Value = Program.convsavedata[20];
-                if (Program.convsavedata[21] != 0 /*|| Program.convsavedata[22] != 0 || Program.convsavedata[23] != 0 || Program.convsavedata[24] != 0 || Program.convsavedata[25] != 0 || Program.convsavedata[26] != 0*/) // pre-2.2.0 save protection (this prevents strings reading 0)
+                if (Program.convsavedata[21] != 0 || Program.convsavedata[22] != 0 || Program.convsavedata[23] != 0 || Program.convsavedata[24] != 0 || Program.convsavedata[25] != 0 || Program.convsavedata[26] != 0) // pre-2.2.0 save protection (this prevents strings reading 0)
                 {
                     buy7ct = Program.convsavedata[21];
                     buy8ct = Program.convsavedata[22];
