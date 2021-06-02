@@ -62,5 +62,15 @@ namespace rm_idle
         {
             Process.Start("https://github.com/remona-minett/rm-Clicker/releases");
         }
+
+        private void currentVer_Click(object sender, EventArgs e) // egg
+        {
+            MessageBox.Show("Originally created by Remona Minett, Nov. 10 2020\r\nWindows Forms Application (WFA)\r\n.NET Framework 4.7.2");
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Process.Start("https://github.com/remona-minett/rm-Clicker/tree/beta");
+        }
     }
 }
