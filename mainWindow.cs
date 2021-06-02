@@ -13,7 +13,7 @@ namespace rm_idle
 
         int buy1ct = 1; int buy2ct = 1; int buy3ct = 1; int buy4ct = 1; int buy5ct = 1; int buy6ct = 1; int buy7ct = 1; int buy8ct = 1;
         int b1prce = 10; int b2prce = 25; int b3prce = 10; int b4prce = 100; int b5prce = 50; int b6prce = 20; int b7prce = 100; int b8prce = 200;
-        int gath0afill = 0; int gath1clickpwr = 1; int gath2clickpwr = 1;
+        int gath0afill = 0; int gath1clickpwr = 1; int gath2clickpwr = 1; int gath1decay = 1; int gath2decay = 1;
 
         int tickcount = 0;
 
@@ -66,12 +66,14 @@ namespace rm_idle
                 gatherer0.Value = Program.convsavedata[18];
                 gatherer1.Value = Program.convsavedata[19];
                 gatherer2.Value = Program.convsavedata[20];
-                if (Program.convsavedata[21] != 0 || Program.convsavedata[22] != 0 || Program.convsavedata[23] != 0 || Program.convsavedata[24] != 0) // pre 2.2.0 saves do not have these and are skipped when reading the file as it returns 0 and breaks the game
+                if (Program.convsavedata[21] != 0 /*|| Program.convsavedata[22] != 0 || Program.convsavedata[23] != 0 || Program.convsavedata[24] != 0 || Program.convsavedata[25] != 0 || Program.convsavedata[26] != 0*/) // pre-2.2.0 save protection (this prevents strings reading 0)
                 {
                     buy7ct = Program.convsavedata[21];
                     buy8ct = Program.convsavedata[22];
                     b7prce = Program.convsavedata[23];
                     b8prce = Program.convsavedata[24];
+                    gath1decay = Program.convsavedata[25];
+                    gath2decay = Program.convsavedata[26];
                 }
             }
         }
@@ -98,7 +100,7 @@ namespace rm_idle
             for ( ; ;)
             {
                 var v = 0;
-                if (gatherer1.Value != 0) v++;
+                if (gatherer1.Value != 0) v++; // todo p2 consume cbs faster
                 if (gatherer2.Value != 0) v++;
                 v += gath0afill;
                 Invoke((MethodInvoker)delegate
@@ -117,11 +119,11 @@ namespace rm_idle
             {
                 Invoke((MethodInvoker)delegate
                 {
-                    if (gatherer1.Value != 0)
+                    if (gatherer1.Value > gath1decay) // todo p3 handle having less than the required gathdecay
                     {
                         if (gatherer0.Value != gatherer0.Maximum)
                         {
-                            gatherer1.Step = -1;
+                            gatherer1.Step = gath1decay;
                             gatherer1.PerformStep();
                         }
                     }
@@ -136,11 +138,11 @@ namespace rm_idle
             {
                 Invoke((MethodInvoker)delegate
                 {
-                    if (gatherer2.Value != 0)
+                    if (gatherer2.Value > gath2decay) // todo p3 handle having less than the required gathdecay
                     {
                         if (gatherer0.Value != gatherer0.Maximum)
                         {
-                            gatherer2.Step = -1;
+                            gatherer2.Step = gath2decay;
                             gatherer2.PerformStep();
                         }
                     }
@@ -260,7 +262,7 @@ namespace rm_idle
 
         private void game_saveButton_Click(object sender, EventArgs e)
         {
-            Program.dirtysavedata = new int[25]; // create pre-save storage
+            Program.dirtysavedata = new int[27]; // create pre-save storage
             Program.dirtysavedata[0] = buy1ct;
             Program.dirtysavedata[1] = buy2ct;
             Program.dirtysavedata[2] = buy3ct;
@@ -286,6 +288,8 @@ namespace rm_idle
             Program.dirtysavedata[22] = buy8ct;
             Program.dirtysavedata[23] = b7prce;
             Program.dirtysavedata[24] = b8prce;
+            Program.dirtysavedata[25] = gath1decay;
+            Program.dirtysavedata[26] = gath2decay;
             bool success = saveLoad.saveData();
             if (success == false)
             {
@@ -301,7 +305,7 @@ namespace rm_idle
 
         private void showhideshop_Click(object sender, EventArgs e)
         {
-            
+            // not implemented
         }
 
         private void mainWindow_FormClosing(object sender, FormClosingEventArgs e)
@@ -309,13 +313,13 @@ namespace rm_idle
             if (saveConfirmText.Visible != true) // if you've saved in the past 5 seconds, this is skipped
             {
                 DialogResult savequit = MessageBox.Show("Do you want to save before quitting?", "Warning", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Exclamation);
-                e.Cancel = (savequit == DialogResult.Cancel);
+                e.Cancel = (savequit == DialogResult.Cancel); // cancel form close
                 switch (savequit)
                 {
-                    case DialogResult.Yes:
+                    case DialogResult.Yes: // pop up save dialog then close no matter if cancelled (change to e.cancel if cancelled?)
                         saveLoad.saveData();
                         break;
-                    case DialogResult.No: /* just allow close */
+                    case DialogResult.No: // do not save
                         break;
                 }
             }
