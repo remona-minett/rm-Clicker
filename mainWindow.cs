@@ -19,6 +19,8 @@ namespace rm_idle
 
         public void mainWindow_Load(object sender, EventArgs e)
         {
+            var shopvisible = false;
+            //init gatherer logic and fillables
             var g0 = new Thread(Gatherer0logic);
             var g1 = new Thread(Gatherer1logic);
             var g2 = new Thread(Gatherer2logic);
@@ -278,6 +280,11 @@ namespace rm_idle
                 saveConfirmText.Visible = true;
                 var confirmed = new Thread(saveConfirm); confirmed.Start();
             }
+        }
+
+        private void showhideshop_Click(object sender, EventArgs e)
+        {
+            
         }
     }
 }

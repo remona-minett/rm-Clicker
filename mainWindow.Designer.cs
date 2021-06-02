@@ -58,6 +58,12 @@
             this.gath0afilllabel = new System.Windows.Forms.Label();
             this.game_saveButton = new System.Windows.Forms.Button();
             this.saveConfirmText = new System.Windows.Forms.Label();
+            this.cosmetic_button = new System.Windows.Forms.Button();
+            this.showhideshop = new System.Windows.Forms.Button();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // gatherer0label
@@ -290,7 +296,7 @@
             // 
             this.tickprogbar.Cursor = System.Windows.Forms.Cursors.Default;
             this.tickprogbar.ForeColor = System.Drawing.Color.Blue;
-            this.tickprogbar.Location = new System.Drawing.Point(497, 237);
+            this.tickprogbar.Location = new System.Drawing.Point(167, -1);
             this.tickprogbar.MarqueeAnimationSpeed = 0;
             this.tickprogbar.Name = "tickprogbar";
             this.tickprogbar.Size = new System.Drawing.Size(88, 23);
@@ -302,7 +308,7 @@
             // label5
             // 
             this.label5.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.label5.Location = new System.Drawing.Point(426, 237);
+            this.label5.Location = new System.Drawing.Point(96, -1);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(65, 23);
             this.label5.TabIndex = 32;
@@ -353,7 +359,7 @@
             // game_saveButton
             // 
             this.game_saveButton.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.game_saveButton.Location = new System.Drawing.Point(12, 237);
+            this.game_saveButton.Location = new System.Drawing.Point(12, 266);
             this.game_saveButton.Name = "game_saveButton";
             this.game_saveButton.Size = new System.Drawing.Size(88, 23);
             this.game_saveButton.TabIndex = 37;
@@ -364,12 +370,76 @@
             // saveConfirmText
             // 
             this.saveConfirmText.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.saveConfirmText.Location = new System.Drawing.Point(106, 242);
+            this.saveConfirmText.Location = new System.Drawing.Point(106, 271);
             this.saveConfirmText.Name = "saveConfirmText";
             this.saveConfirmText.Size = new System.Drawing.Size(52, 18);
             this.saveConfirmText.TabIndex = 38;
             this.saveConfirmText.Text = "Saved!";
             this.saveConfirmText.Visible = false;
+            // 
+            // cosmetic_button
+            // 
+            this.cosmetic_button.Enabled = false;
+            this.cosmetic_button.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.cosmetic_button.Location = new System.Drawing.Point(403, 266);
+            this.cosmetic_button.Name = "cosmetic_button";
+            this.cosmetic_button.Size = new System.Drawing.Size(88, 23);
+            this.cosmetic_button.TabIndex = 39;
+            this.cosmetic_button.Text = "Cosmetics";
+            this.cosmetic_button.UseVisualStyleBackColor = true;
+            this.cosmetic_button.Visible = false;
+            // 
+            // showhideshop
+            // 
+            this.showhideshop.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.showhideshop.Location = new System.Drawing.Point(497, 266);
+            this.showhideshop.Name = "showhideshop";
+            this.showhideshop.Size = new System.Drawing.Size(88, 23);
+            this.showhideshop.TabIndex = 40;
+            this.showhideshop.Text = "Hide Shop /\\";
+            this.showhideshop.UseVisualStyleBackColor = true;
+            this.showhideshop.Visible = false;
+            this.showhideshop.Click += new System.EventHandler(this.showhideshop_Click);
+            // 
+            // label3
+            // 
+            this.label3.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.label3.Location = new System.Drawing.Point(12, 242);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(181, 13);
+            this.label3.TabIndex = 44;
+            this.label3.Text = "label3";
+            // 
+            // label4
+            // 
+            this.label4.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.label4.Location = new System.Drawing.Point(310, 242);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(181, 13);
+            this.label4.TabIndex = 43;
+            this.label4.Text = "label4";
+            // 
+            // button1
+            // 
+            this.button1.Enabled = false;
+            this.button1.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.button1.Location = new System.Drawing.Point(497, 237);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(88, 23);
+            this.button1.TabIndex = 42;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // button2
+            // 
+            this.button2.Enabled = false;
+            this.button2.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.button2.Location = new System.Drawing.Point(199, 237);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(88, 23);
+            this.button2.TabIndex = 41;
+            this.button2.Text = "button2";
+            this.button2.UseVisualStyleBackColor = true;
             // 
             // mainWindow
             // 
@@ -379,7 +449,13 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Gray;
-            this.ClientSize = new System.Drawing.Size(597, 266);
+            this.ClientSize = new System.Drawing.Size(597, 299);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.button2);
+            this.Controls.Add(this.showhideshop);
+            this.Controls.Add(this.cosmetic_button);
             this.Controls.Add(this.saveConfirmText);
             this.Controls.Add(this.game_saveButton);
             this.Controls.Add(this.gath0afilllabel);
@@ -452,6 +528,12 @@
         private System.Windows.Forms.Label gath0afilllabel;
         private System.Windows.Forms.Button game_saveButton;
         private System.Windows.Forms.Label saveConfirmText;
+        private System.Windows.Forms.Button cosmetic_button;
+        private System.Windows.Forms.Button showhideshop;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button2;
     }
 }
 
